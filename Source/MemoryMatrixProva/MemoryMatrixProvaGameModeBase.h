@@ -13,7 +13,8 @@ class MEMORYMATRIXPROVA_API AMemoryMatrixProvaGameModeBase : public AGameModeBas
 {
 	GENERATED_BODY()
 	
-	
+public:
+	AMemoryMatrixProvaGameModeBase();
 	
 	
 };

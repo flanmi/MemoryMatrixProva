@@ -2,7 +2,13 @@
 
 #include "MemoryMatrixProva.h"
 #include "MemoryMatrixProvaGameModeBase.h"
+#include "MatrixPlayerController.h"
 
 
+
+
+AMemoryMatrixProvaGameModeBase::AMemoryMatrixProvaGameModeBase() {
+	PlayerControllerClass = AMatrixPlayerController::StaticClass();
+}
 
 
