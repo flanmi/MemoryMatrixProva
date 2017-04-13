@@ -31,15 +31,34 @@ void AMatrixPawn::BeginPlay()
 void AMatrixPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	Score = 0;
 }
 
 // Called to bind functionality to input
 void AMatrixPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	//PlayerInputComponent->BindAction("Lvup", IE_Pressed, this, &AMatrixPawn::Lvup);
 
 }
 
+void AMatrixPawn::SetScore(int NewScore) {
+	Score = NewScore;
+}
 
+int AMatrixPawn::GetScore() {
+	return Score;
+}
+
+
+
+/*void AMatrixPawn::Lvup() {
+	UWorld* World = GetWorld();
+
+	if (World != nullptr) {
+
+		AGrid* Pawn = Cast <AGrid>(UGameplayStatics::GetPlayerController(World, 0)->GetControlledPawn());
+		Pawn->NovoLevel();
+
+	}
+}*/

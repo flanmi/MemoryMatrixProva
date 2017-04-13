@@ -24,21 +24,40 @@ public:
 
 	void NovoLevel();
 
+	void Verificar(class ASquares* Click);
+	void GameOver();
+
+
 
 private:
 	
 	UPROPERTY(EditAnywhere)
 		USceneComponent* Root;
 	TSubclassOf<class ASquares> Quad;
+	TSubclassOf<class UUserWidget> GameOverWidget;
+	TArray<class ASquares*> Quadrados;
 	
+	TArray<int> Posicao;
+
+
+	float LocationX = 0.0f;
+	float LocationZ = 0.0f;
+
+	int Sequencia = 3;
+
+	int NumCLicks;
+
+
 	int MatrixCol = 3;
 	int MatrixRow = 3;
 
 	int LevelCont = 1;
 	
+	void Tabuleiro();
+
 	void ViraQuadrado();
 	//void NovoLevel();
-
+	FTimerHandle ClickTempo;
 
 
 };

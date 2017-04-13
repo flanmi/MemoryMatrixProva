@@ -22,10 +22,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
+	void AutoClick();
 	void Click();
 	void SetIndex(int NewIndex);
 	int GetIndex();
+	void SetOwnerGrid(class AGrid* Tabuleiro);
+
+
 
 private:
 	UPROPERTY(EditAnywhere)
@@ -47,6 +50,9 @@ private:
 	UFUNCTION()
 	void OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedComponent);
 
+
+	class AGrid* OwnerGrid;
+	
 	void Pisca();
 	FTimerHandle TempoPiscar;
 };

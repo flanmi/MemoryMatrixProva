@@ -25,7 +25,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
+	void SetScore(int NewScore);
+	UFUNCTION(BlueprintCallable, Category = "Score")
+		int GetScore();
 
 
 
@@ -33,5 +35,7 @@ private:
 	UPROPERTY(EditAnywhere)
 		UCameraComponent* Camera;
 
-	
+	UPROPERTY(EditAnywhere)
+		int Score;
+	//void Lvup();
 };

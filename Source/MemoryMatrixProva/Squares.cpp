@@ -44,6 +44,15 @@ void ASquares::Click() {
 
 
 }
+void ASquares::AutoClick() {
+	if (Sprite->GetSprite() == (ClosedSprite)) {
+		Sprite->SetSprite(OpenedSprite);
+		GetWorldTimerManager().SetTimer(TempoPiscar, this, &ASquares::Pisca, 1.0f, true);
+	}
+		
+}
+
+
 
 void ASquares::SetIndex(int NewIndex) {
 	Index = NewIndex;
@@ -56,18 +65,16 @@ int ASquares::GetIndex() {
 
 void ASquares::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* TouchedComponent) {
 
-	UE_LOG(LogTemp, Warning, TEXT("It works!"));
+
 	UWorld* World = GetWorld();
 	if (World != nullptr) {
 
 		
 		Click();
-
-		GetWorldTimerManager().SetTimer(TempoPiscar, this,	&ASquares::Pisca, 0.5f, true);
+		OwnerGrid->Verificar(this);
 		
-		
-
-
+		//GetWorldTimerManager().SetTimer(TempoPiscar, this,	&ASquares::Pisca, 0.5f, true);
+			
 	}
 
 }
@@ -76,4 +83,8 @@ void ASquares::OnTouchBegin(ETouchIndex::Type type, UPrimitiveComponent* Touched
 void ASquares::Pisca() {
 	Sprite->SetSprite(ClosedSprite);
 	GetWorldTimerManager().ClearTimer(TempoPiscar);
+}
+
+void ASquares::SetOwnerGrid(class AGrid* Tabuleiro) {
+	OwnerGrid = Tabuleiro;
 }
